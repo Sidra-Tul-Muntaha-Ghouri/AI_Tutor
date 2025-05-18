@@ -9,3 +9,4 @@ gTTS
 nltk
 torch
 faiss-cpu
+huggingface_hub
