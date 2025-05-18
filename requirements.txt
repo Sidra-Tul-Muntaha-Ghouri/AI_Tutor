@@ -7,9 +7,8 @@ langchain_community
 langchain
 gTTS
 nltk
-torch
 faiss-cpu
 huggingface_hub
 hf_xet
 sentence-transformers
-
+torch==2.2.0
