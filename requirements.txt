@@ -1,12 +1,11 @@
 streamlit
-pytesseract
 pdfplumber
 Pillow
+pytesseract
 transformers
-torch
-sentence-transformers
+langchain_community
 langchain
-langchain-community
-faiss-cpu
 gTTS
 nltk
+torch
+faiss-cpu
