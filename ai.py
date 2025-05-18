@@ -16,15 +16,39 @@ import random
 import torch  # Import torch
 
 # Download NLTK resources if not already downloaded
-nltk.download('averaged_perceptron_tagger', quiet=True)
-nltk.download('punkt', quiet=True)
-nltk.download('punkt_tab', quiet=True)
+# nltk_data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "nltk_data")
+
+# Set a writable download directory
+nltk_data_dir = "/tmp/nltk_data"
+os.makedirs(nltk_data_dir, exist_ok=True)
+
+# Set NLTK to use this directory
+nltk.data.path.append(nltk_data_dir)
+
+# Download required resources to this directory
+nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
+nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
+
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
+nltk.data.path.append(nltk_data_dir)
+
+nltk_data_dir = "/tmp/nltk_data"
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
+# nltk.download('punkt', download_dir=nltk_data_dir)
+# nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir)
+nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
+nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
+
+
 
 # Load models
-summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6", device=torch.device("cpu"))
+
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 qa_pipeline = pipeline("question-answering", model="distilbert-base-cased-distilled-squad", device=torch.device("cpu"))
 embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-
 vector_dbs = {}  # Dictionary to store multiple vector databases, keyed by document title
 extracted_texts = {} # Dictionary to store extracted text, keyed by document title
 current_doc_title = None
@@ -320,8 +344,8 @@ with tab4:
                     st.subheader("Flashcards")
                     for i, card in enumerate(flashcards):
                         with st.expander(f"Card {i+1}"):
-                            st.markdown(f"**Term:** {card['term']}")
-                            st.markdown(f"**Definition:** {card['definition']}")
+                            st.markdown(f"*Term:* {card['term']}")
+                            st.markdown(f"*Definition:* {card['definition']}")
                 else:
                     st.info("No flashcards could be generated from this document using the current method.")
             else:
