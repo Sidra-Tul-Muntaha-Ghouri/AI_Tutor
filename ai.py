@@ -22,25 +22,36 @@ import torch  # Import torch
 nltk_data_dir = "/tmp/nltk_data"
 os.makedirs(nltk_data_dir, exist_ok=True)
 
-# Set NLTK to use this directory
-nltk.data.path.append(nltk_data_dir)
-
-# Download required resources to this directory
-nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
-nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
-
-os.makedirs(nltk_data_dir, exist_ok=True)
-nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
-nltk.data.path.append(nltk_data_dir)
-
 nltk_data_dir = "/tmp/nltk_data"
 os.makedirs(nltk_data_dir, exist_ok=True)
 nltk.data.path.append(nltk_data_dir)
 
-# nltk.download('punkt', download_dir=nltk_data_dir)
-# nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir)
-nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
-nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
+def setup_nltk():
+    nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
+    nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
+
+setup_nltk()
+
+
+# Set NLTK to use this directory
+# nltk.data.path.append(nltk_data_dir)
+
+# # Download required resources to this directory
+# nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
+# nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
+
+# os.makedirs(nltk_data_dir, exist_ok=True)
+# nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
+# nltk.data.path.append(nltk_data_dir)
+
+# nltk_data_dir = "/tmp/nltk_data"
+# os.makedirs(nltk_data_dir, exist_ok=True)
+# nltk.data.path.append(nltk_data_dir)
+
+# # nltk.download('punkt', download_dir=nltk_data_dir)
+# # nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir)
+# nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
+# nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
 
 
 
