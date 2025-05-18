@@ -10,3 +10,4 @@ nltk
 torch
 faiss-cpu
 huggingface_hub
+hf_xet
