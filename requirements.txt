@@ -1,0 +1,12 @@
+streamlit
+pytesseract
+pdfplumber
+Pillow
+transformers
+torch
+sentence-transformers
+langchain
+langchain-community
+faiss-cpu
+gTTS
+nltk
